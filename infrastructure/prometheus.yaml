@@ -11,15 +11,15 @@ spec:
     helm:
       parameters:
         - name: kubeControllerManager.service.port
-          value: 10257
+          value: "10257"
         - name: kubeControllerManager.service.targetPort
-          value: 10257
+          value: "10257"
         - name: kubeControllerManager.serviceMonitor.https
-          value: true
+          value: "true"
         - name: prometheus.prometheusSpec.podMonitorSelectorNilUsesHelmValues
-          value: false
+          value: "false"
         - name: prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues
-          value: false
+          value: "false"
     chart: kube-prometheus-stack
   destination:
     server: 'https://kubernetes.default.svc'
