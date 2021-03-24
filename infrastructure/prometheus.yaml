@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: infrastructure
+  source:
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 14.1.2
+    helm:
+      parameters:
+        - name: kubeControllerManager.service.port
+          value: 10257
+        - name: kubeControllerManager.service.targetPort
+          value: 10257
+        - name: kubeControllerManager.serviceMonitor.https
+          value: true
+        - name: prometheus.prometheusSpec.podMonitorSelectorNilUsesHelmValues
+          value: false
+        - name: prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues
+          value: false
+    chart: kube-prometheus-stack
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
