@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo
+  namespace: argocd
+spec:
+  project: apps
+  source:
+    repoURL: 'https://stefanprodan.github.io/podinfo'
+    targetRevision: 5.0.1
+    helm:
+      parameters:
+        - name: cache
+          value: "redis-master.redis:6379"
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.annotations.kubernetes.io/ingress.class
+          value: "nginx"
+        - name: ingress.path
+          value: "/"
+        - name: ingress.hosts
+          value: "podinfo.jamesmcleod.xyz"
+    chart: podinfo
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: podinfo
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
