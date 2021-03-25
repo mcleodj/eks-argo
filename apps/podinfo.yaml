@@ -19,7 +19,7 @@ spec:
         - name: ingress.path
           value: "/"
         - name: ingress.hosts
-          value: "podinfo.jamesmcleod.xyz"
+          value: ["podinfo.jamesmcleod.xyz"]
     chart: podinfo
   destination:
     server: 'https://kubernetes.default.svc'
