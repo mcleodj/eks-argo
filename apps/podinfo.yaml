@@ -7,7 +7,7 @@ spec:
   project: apps
   source:
     repoURL: 'https://stefanprodan.github.io/podinfo'
-    targetRevision: 5.0.1
+    targetRevision: 5.0.2
     helm:
       values: |
         replicaCount: 10
@@ -27,17 +27,3 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
-
-
-# ingress:
-#   enabled: false
-#   annotations: {}
-#     # kubernetes.io/ingress.class: nginx
-#     # kubernetes.io/tls-acme: "true"
-#   path: /*
-#   hosts: []
-# #    - podinfo.local
-#   tls: []
-#   #  - secretName: chart-example-tls
-#   #    hosts:
-#   #      - chart-example.local
