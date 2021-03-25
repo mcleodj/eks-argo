@@ -18,8 +18,8 @@ spec:
           value: "nginx"
         - name: ingress.path
           value: "/"
-        - name: ingress.hosts
-          value: ["podinfo.jamesmcleod.xyz"]
+        # - name: ingress.hosts
+        #   value: "podinfo.jamesmcleod.xyz"
     chart: podinfo
   destination:
     server: 'https://kubernetes.default.svc'
@@ -28,3 +28,17 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+
+
+# ingress:
+#   enabled: false
+#   annotations: {}
+#     # kubernetes.io/ingress.class: nginx
+#     # kubernetes.io/tls-acme: "true"
+#   path: /*
+#   hosts: []
+# #    - podinfo.local
+#   tls: []
+#   #  - secretName: chart-example-tls
+#   #    hosts:
+#   #      - chart-example.local
