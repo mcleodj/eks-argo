@@ -18,7 +18,7 @@ spec:
           value: "false"
         - name: metrics.enabled
           value: "true"
-        - name: metrics.enabled.serviceMonitor.enabled
+        - name: metrics.serviceMonitor.enabled
           value: "true"
     chart: redis
   destination:
