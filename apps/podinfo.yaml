@@ -24,6 +24,7 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: podinfo
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
