@@ -3,7 +3,7 @@ cache: "redis-master.redis:6379"
 ingress:
   enabled: "true"
   annotations:
-    - kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: nginx
   path: "/"
   hosts:
     - "podinfo.jamesmcleod.xyz"
