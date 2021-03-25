@@ -16,6 +16,8 @@ spec:
           value: "false"
         - name: master.persistence.enabled
           value: "false"
+        - name: metrics.enabled
+          value: "true"
         - name: metrics.enabled.serviceMonitor.enabled
           value: "true"
     chart: redis
