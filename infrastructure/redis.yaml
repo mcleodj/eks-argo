@@ -17,7 +17,7 @@ spec:
         - name: master.persistence.enabled
           value: "false"
         - name: metrics.enabled.serviceMonitor.enabled
-          value: true
+          value: "true"
     chart: redis
   destination:
     server: 'https://kubernetes.default.svc'
