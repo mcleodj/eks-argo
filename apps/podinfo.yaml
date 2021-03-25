@@ -9,17 +9,8 @@ spec:
     repoURL: 'https://stefanprodan.github.io/podinfo'
     targetRevision: 5.0.1
     helm:
-      parameters:
-        - name: cache
-          value: "redis-master.redis:6379"
-        - name: ingress.enabled
-          value: "true"
-        - name: ingress.annotations.kubernetes.io/ingress.class
-          value: "nginx"
-        - name: ingress.path
-          value: "/"
-        # - name: ingress.hosts
-        #   value: "podinfo.jamesmcleod.xyz"
+      valueFiles:
+        - podinfo-values.yaml
     chart: podinfo
   destination:
     server: 'https://kubernetes.default.svc'
